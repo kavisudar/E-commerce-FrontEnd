@@ -12,6 +12,8 @@ export default function CartPage() {
     increaseQty,
     decreaseQty,
     totalPrice,
+      clearCart,
+   
   } = useCart();
 
   const [showCheckout, setShowCheckout] = useState(false);
@@ -43,6 +45,8 @@ export default function CartPage() {
       return;
     }
 
+  
+
     const order = {
       id: Date.now(),
       items: cart,
@@ -53,7 +57,7 @@ export default function CartPage() {
 
     const prevOrders = JSON.parse(localStorage.getItem("orders")) || [];
     localStorage.setItem("orders", JSON.stringify([...prevOrders, order]));
-
+    clearCart();
     setOrderPlaced(true);
     setShowCheckout(false);
   };

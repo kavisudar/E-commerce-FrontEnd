@@ -12,6 +12,9 @@ import { ShoppingCart, Heart, Settings, LogOut } from "lucide-react";
 export default function Page() {
   const { cart } = useCart();
 
+   const capitalize = (str = "") =>
+  str.charAt(0).toUpperCase() + str.slice(1);
+
   const [user, setUser] = useState(null);
   const [toast, setToast] = useState(false);
 
@@ -157,8 +160,9 @@ export default function Page() {
                 </DropdownMenuTrigger>
 
                 <DropdownMenuContent className="w-56">
-                  <div className="px-3 py-2 font-semibold text-sm border-b">
-                    {user?.name}
+                  <div className="px-3 py-2 font-semibold text-2xl border-b">
+                  
+                    {capitalize(user?.name)}
                   </div>
 
                   <DropdownMenuItem asChild>

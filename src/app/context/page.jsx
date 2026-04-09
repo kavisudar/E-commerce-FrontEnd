@@ -5,6 +5,10 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  // clear cart after order placed
+  const clearCart = () => {
+  setCart([]);
+};
 
   // Load from localStorage
   useEffect(() => {
@@ -74,6 +78,7 @@ export const CartProvider = ({ children }) => {
         decreaseQty,
         removeFromCart,
         totalPrice,
+        clearCart,
       }}
     >
       {children}
