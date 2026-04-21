@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from "@/app/context/page";
+import { useCart } from "@/app/context/CartContext";
 import { useRouter } from "next/navigation";
 
 export default function PopularBuying() {
