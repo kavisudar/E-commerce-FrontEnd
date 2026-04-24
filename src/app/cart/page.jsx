@@ -3,6 +3,12 @@
 import { useEffect, useState, useCallback } from "react";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Link from "next/link";
+import { products } from "@/app/data/product";
+
+const getImage = (productId) => {
+  const product = products.find((p) => Number(p.id) === Number(productId));
+  return product?.img || "https://via.placeholder.com/150";
+};
 
 function Toast({ toasts, removeToast }) {
   return (
@@ -86,6 +92,7 @@ export default function Page() {
     try {
       const res = await fetch(`http://localhost:8080/api/cart/${userId}`);
       const data = await res.json();
+      //  console.log("CART DATA", JSON.stringify(data)); 
       setCart(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error(err);
@@ -196,36 +203,44 @@ export default function Page() {
           {/* LEFT */}
           <div className="md:col-span-2 space-y-4">
             {cart.map((item) => (
-              <div
-                key={item.id}
-                className="flex justify-between bg-white p-4 rounded shadow"
-              >
-                <div>
-                  <h2 className="font-semibold">{item.name}</h2>
-                  <p className="text-green-600">₹{item.price}</p>
+  <div
+    key={item.id}
+    className="flex justify-between bg-white p-4 rounded shadow"
+  >
+    <div className="flex gap-4 items-center">
+      {/* ADD THIS */}
+      <img
+        src={getImage(item.productId)}
+        className="w-16 h-16 object-contain bg-gray-50 rounded"
+      />
 
-                  <div className="flex gap-3 mt-2 items-center">
-                    <button
-                      onClick={() => decreaseQty(item.id)}
-                      className="px-2 bg-gray-300"
-                    >
-                      <Minus size={16} />
-                    </button>
-                    <span>{item.quantity}</span>
-                    <button
-                      onClick={() => increaseQty(item.id)}
-                      className="px-2 bg-gray-300"
-                    >
-                      <Plus size={16} />
-                    </button>
-                  </div>
-                </div>
+      <div>
+        <h2 className="font-semibold">{item.name}</h2>
+        <p className="text-green-600">₹{item.price}</p>
 
-                <button onClick={() => removeItem(item.id)} className="text-red-500">
-                  <Trash2 />
-                </button>
-              </div>
-            ))}
+        <div className="flex gap-3 mt-2 items-center">
+          <button
+            onClick={() => decreaseQty(item.id)}
+            className="px-2 bg-gray-300"
+          >
+            <Minus size={16} />
+          </button>
+          <span>{item.quantity}</span>
+          <button
+            onClick={() => increaseQty(item.id)}
+            className="px-2 bg-gray-300"
+          >
+            <Plus size={16} />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <button onClick={() => removeItem(item.id)} className="text-red-500">
+      <Trash2 />
+    </button>
+  </div>
+))}
           </div>
 
           {/* RIGHT */}

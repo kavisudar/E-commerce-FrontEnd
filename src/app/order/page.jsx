@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { products } from "@/app/data/product";
+import Link from "next/link";
 
 // ── Toast Component ──────────────────────────────────────────
 function Toast({ toasts, removeToast }) {
@@ -112,6 +113,7 @@ export default function OrdersPage() {
     try {
       const res = await fetch(`http://localhost:8080/api/orders/${userId}`);
       const data = await res.json();
+       console.log("ORDER ITEMS", JSON.stringify(data));
       setOrders(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error(err);
@@ -162,10 +164,26 @@ export default function OrdersPage() {
         onCancel={() => setConfirm({ open: false, orderId: null })}
       />
 
-      <h1 className="text-3xl font-bold mb-6">📦 My Orders</h1>
+      <h1 className="text-3xl font-bold mb-6"> My Orders</h1>
 
       {orders.length === 0 ? (
-        <div className="text-center text-gray-500 mt-20">No orders found 😔</div>
+     <div>
+  <div className="text-center text-blue-500 mt-20 text-2xl">
+    No orders found
+  </div>
+
+  <h3 className="text-center text-yellow-500 mt-4 text-4xl">
+    Start Explore Our Products!
+  </h3>
+
+  <Link
+    href="/products"
+    className="block w-max mx-auto mt-6 bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition text-center"
+  >
+    Explore Products
+  </Link>
+</div>
+        
       ) : (
         <div className="space-y-6">
           {orders.map((order) => (

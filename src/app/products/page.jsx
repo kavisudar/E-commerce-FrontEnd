@@ -155,12 +155,13 @@ export default function ProductsPage() {
             onChange={(e) => setSearch(e.target.value)}
           />
           <select onChange={(e) => setCategory(e.target.value)}>
-            <option value="all">All</option>
-            <option value="dresses">Fashion</option>
-            <option value="shoes">Shoes</option>
-            <option value="watches">Watches</option>
-            <option value="phones">Mobiles</option>
-          </select>
+  <option value="all">All</option>
+  <option value="dresses">Fashion</option>
+  <option value="shoes">Shoes</option>
+  <option value="watches">Watches</option>
+  <option value="phones">Mobiles</option>
+  <option value="cosmetics">Cosmetics</option>
+</select>
         </div>
 
         {/* Products */}

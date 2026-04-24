@@ -47,7 +47,7 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* Remember + Forgot */}
+        
           <div className="flex justify-between items-center text-sm">
             <label className="flex items-center gap-2">
               <input type="checkbox" />
@@ -67,7 +67,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Divider */}
+    
         <div className="my-4 text-center text-gray-400 text-sm">
           OR
         </div>
