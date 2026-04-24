@@ -39,7 +39,7 @@ It includes user authentication, admin dashboard, shopping cart, order managemen
 
 ### Backend:
 
-* REST API (Spring Boot / Node.js assumed)
+* REST API (Spring Boot)
 * MySQL / Database
 
 ---
@@ -111,6 +111,6 @@ app/
 
 ## 🧑‍💻 Author
 
-**Kavi (ShopMart Developer)**
+**Kavisudar (ShopMart Developer)**
 
 ---
