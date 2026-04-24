@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛒 ShopMart - Full Stack E-Commerce Platform
 
-## Getting Started
+## 🚀 Overview
 
-First, run the development server:
+ShopMart is a modern full-stack e-commerce web application built using **Next.js**, **React**, and a backend API.
+It includes user authentication, admin dashboard, shopping cart, order management, and a chatbot support system.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🧩 Features
+
+### 👤 User Features
+
+* User Registration & Login
+* Product Browsing with Search & Filter
+* Add to Cart & Manage Cart
+* Checkout & Place Orders
+* View Order History
+* Chatbot Support (FAQ-based)
+
+### 🛠️ Admin Features
+
+* Admin Login & Registration
+* Dashboard with system stats
+* Login history tracking
+* Session-based access control
+
+---
+
+## ⚙️ Tech Stack
+
+### Frontend:
+
+* Next.js (App Router)
+* React.js
+* Tailwind CSS
+* Framer Motion
+* Lucide Icons
+
+### Backend:
+
+* REST API (Spring Boot / Node.js assumed)
+* MySQL / Database
+
+---
+
+## 📦 Folder Structure
+
+```
+app/
+ ├── Navbar/
+ ├── cart/
+ ├── products/
+ ├── order/
+ ├── admin/
+ ├── context/
+ ├── bot/
+ ├── data/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🔌 API Endpoints
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Auth:
 
-## Learn More
+* POST `/api/auth/login`
+* POST `/api/auth/register`
 
-To learn more about Next.js, take a look at the following resources:
+### Admin:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* POST `/api/auth/admin/login`
+* POST `/api/auth/admin/register`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Cart:
 
-## Deploy on Vercel
+* GET `/api/cart/{userId}`
+* POST `/api/cart/add/{userId}`
+* PUT `/api/cart/increase/{id}`
+* PUT `/api/cart/decrease/{id}`
+* DELETE `/api/cart/delete/{id}`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Orders:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* POST `/api/orders/place/{userId}`
+* GET `/api/orders/{userId}`
+* PUT `/api/orders/cancel/{orderId}`
+
+---
+
+## 🎯 Key Highlights
+
+* 🔐 Custom password validation (Strength checker)
+* ⚡ Real-time UI updates (Cart, Orders)
+* 🎨 Modern UI with animations
+* 🔔 Custom Toast Notification System
+* 🤖 Built-in Chatbot Support
+
+---
+
+
+## 🚀 Future Improvements
+
+* JWT Authentication & Role-based access
+* Payment Gateway Integration
+* AI Chatbot (OpenAI / Dialogflow)
+* Admin analytics dashboard
+* Deployment (Vercel + Cloud backend)
+
+---
+
+## 🧑‍💻 Author
+
+**Kavi (ShopMart Developer)**
+
+---
